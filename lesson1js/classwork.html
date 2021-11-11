@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classwork</title>
+</head>
+<body>
+    <p style="font-size: 20px;">
+        1. Створити масив з 10 чисел (можна використовувати Math.random Та Math.floor). Скласти результат цих чисел в змінній result.
+        <br>
+        2. Створити об'єкт book з наступними полями  - назва, кількість сторінок, жанр
+        <br>
+        3. Створити об'єкт book з наступними полями  - назва, кількість сторінок, жанр, автори
+        <br>
+        4. Створити маис об'єктів book з наступними полями  - назва, кількість сторінок, жанр, автори. Вивести кожну книгу як окремий об'єкт
+        <br>
+        5. Напишіть код, який вираховує площу прямокутника висотою 23см. (змінна height) та шириною 10см (змінна width).
+        Значення площі зберігати в змінній s.
+        <br>
+        6. Напиши код, який знаходить об'єм циліндра заввишки 10м (змінна heightC) та діаметром основи 4м (dC),
+        результат помістіть у змінну v.
+        <br>
+        7. У прямокутного трикутника дві сторони n (зі значенням 3) та m (зі значенням 4).
+        Знайдіть гіпотенузу k за теоремою Піфагора (потрібно використовувати функцію Math.pow (число, ступінь) або оператор зведення в ступінь **).
+    </p>
+
+<script>
+    //Завдання 1
+    let result = [20, 10, 30, 50, 2, 22, 54, 23, 99, 21];
+
+    //Завдання 2
+    let bookOne = {
+        name : 'Eragon',
+        pages : 100,
+        genre : 'fantasy'
+    }
+
+    //Завдання 3
+    let bookTwo = {
+        name : 'Eragon',
+        pages : 100,
+        genre : 'fantasy',
+        athour : 'Shevchenko'
+    }
+
+    //Завдання 4
+    let bookArray = [
+        {name : 'Eragon',pages : 100, genre : 'fantasy', athour : 'Shevchenko'},
+        {name : 'HarryPotter',pages : 400, genre : 'fantasy', athour : 'Johan Rooling'}
+    ]; //Не знаю чи правильно зрозумыв це завдання
+
+    //Завдання 5
+    let height = 23;
+    let wight = 10;
+    let s = height * wight;
+    console.log(s + 'cm');
+
+    //Завдання 6
+    let heightC = 10;
+    let dC = 4;
+    let p = 3.14;
+    let v = p * dC * dC * heightC;
+    console.log(v + 'm');
+
+    //Завдання 7
+    let n = 3;
+    let k = 4;
+    n = Math.pow(n, 2);
+
+    let g = n + k**2; // Вирахували гіпотенузу
+    console.log(g);
+
+
+
+
+</script>
+</body>
+</html>
