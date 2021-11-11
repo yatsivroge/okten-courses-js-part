@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+</head>
+<body>
+Ваше завдання, зробити так, щоб файл відкривався без помилок .
+
+<script>
+  // Ваше завдання, зробити так, щоб файл відкривався без помилок .
+
+  let a = 100;
+  let b = 500;
+  let c = "hello"; // Ніде не використовуємо можемо просто стерти
+  let d = "okten";
+  const x = 'constant value';
+  {
+    console.log(a);
+    // x = 'new value';
+    //Константа не може міняти своє значення ми може просто вивести її
+    //через console.log або alert , prompt і т.д
+    // або можемо просто :
+    let x = 'new value'
+    console.log(x);
+  }
+  b = 'new value';
+  // let b = 'new value';  в цій строці потрібно забрати ключове слове let тому що декларація вже відбулась
+  //і в цьому немає сенсу + вибиває помилку
+
+  let result = 100 + 'y';
+  //let result = 100 + y;  тут ми може добавити лапки або просто задекларувати зміну і присвоїти їй якесь значення
+  // в залежності що нам потрібно
+
+  console.log(result);
+  //console(result); помилка в ситаксисі console.log
+
+
+</script>
+
+</body>
+</html>
