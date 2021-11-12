@@ -27,6 +27,12 @@
 <script>
     //Завдання 1
     let result = [20, 10, 30, 50, 2, 22, 54, 23, 99, 21];
+    let total = 0;
+    for (let i in result) {
+        total += result[i];
+        //console.log(total); якщо потрыбно вивести всі значення додаючи їх
+    }
+    console.log(total); // сума всіх чисел
 
     //Завдання 2
     let bookOne = {
@@ -47,7 +53,10 @@
     let bookArray = [
         {name : 'Eragon',pages : 100, genre : 'fantasy', athour : 'Shevchenko'},
         {name : 'HarryPotter',pages : 400, genre : 'fantasy', athour : 'Johan Rooling'}
-    ]; //Не знаю чи правильно зрозумыв це завдання
+    ];
+
+    console.log(bookArray[0]);
+    console.log(bookArray[1]);
 
     //Завдання 5
     let height = 23;
@@ -68,7 +77,7 @@
     n = Math.pow(n, 2);
 
     let g = n + k**2; // Вирахували гіпотенузу
-    console.log(g);
+    console.log(Math.sqrt(g));
 
 
 
