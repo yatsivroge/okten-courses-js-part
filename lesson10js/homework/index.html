@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+
+</head>
+<body>
+
+<!--завдання 2-->
+<input type="text" id="age">
+<input type="button" id="btn" value="Перевірити вік">
+
+<script>
+
+//    - Создать произвольный елемент с id = text.
+//    Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
+// let text = document.createElement('div');
+// document.body.appendChild(text);
+// text.setAttribute("id", "text");
+// text.style.width = "200px";
+// text.style.height = "200px";
+// text.style.backgroundColor = "yellow";
+//
+// let button = document.createElement('button');
+// document.body.appendChild(button);
+// button.innerText = "Display Hidden";
+// button.onclick = function (){
+//     text.style.display = "none";
+//
+// }
+
+
+//        - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
+// let button = document.createElement('button');
+// document.body.appendChild(button);
+// button.innerText = "Display Hidden";
+// button.onclick = function () {
+//     this.style.display = "none";
+// }
+
+
+//    - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з
+//    інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+//
+// let button = document.getElementById('btn').onclick = function () {
+//   let age =   document.getElementById('age').value;
+//     if (!age) {
+//         alert('Введіть вік');
+//     } else if (+age < 18) {
+//         alert('Ще за надто юні');
+//     } else {
+//         alert('Велком .');
+//     }
+// }
+
+
+//    - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
+//        Вывести список комментариев в документ, каждый в своем блоке.
+//        Добавьте каждому комментарию по кнопке для сворачивания его body.
+//
+// let commentArray = [
+//     {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+//     {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+//     {title : 'lorem', body:'lorem ipsum dolo sit ameti'}];
+//
+// let mainDiv = document.createElement('div');
+//
+//
+// for (const item of commentArray) {
+//     let div = document.createElement('div');
+//     let h3 = document.createElement('h3');
+//     let p = document.createElement('p');
+//     let btn = document.createElement('button');
+//     let hr = document.createElement('hr');
+//
+//     h3.innerText = item.title;
+//     p.innerHTML = item.body;
+//     btn.innerHTML = 'delete'
+//
+//     btn.onclick = () => {
+//         p.style.display = "none";
+//     }
+//     div.append(h3, p, btn);
+//     mainDiv.append(div, hr);
+// }
+// document.body.appendChild(mainDiv)
+
+
+
+</script>
+</body>
+</html>

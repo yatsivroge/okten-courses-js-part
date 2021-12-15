@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fav</title>
+</head>
+<body>
+<div id="container"></div>
+<a href="./index.html">Home</a>
+<script>
+    const favoritesKey = 'favorites';
+    const container = document.getElementById('container');
+    const users = JSON.parse(localStorage.getItem(favoritesKey));
+
+    users.forEach(user => {
+        const userDiv = document.createElement('div');
+        userDiv.className = 'user';
+        const content = document.createElement('div');
+        content.innerText = `Name: ${user.name}\nAge: ${user.age}\nStatus: ${user.status}`;
+        userDiv.appendChild(content);
+        container.appendChild(userDiv);
+    })
+</script>
+</body>
+</html>
