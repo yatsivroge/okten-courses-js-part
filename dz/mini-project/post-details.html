@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        p {
+            padding: .4rem 1rem;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        button {
+            font-size: 20px;
+            padding: .3rem;
+            margin: .5rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        const post = JSON.parse(localStorage.getItem('post'));
+
+        const fatherDiv = document.createElement('div');
+        fatherDiv.className = 'father';
+        document.body.appendChild(fatherDiv);
+
+        post.forEach( postItems => {
+
+        const mainDiv = document.createElement('div');
+        mainDiv.className = 'main';
+        fatherDiv.appendChild(mainDiv);
+
+        mainDiv.innerHTML = `
+        <p>${postItems.userId}</p>
+        <p>${postItems.id}</p>
+        <p>${postItems.title} </p>
+        <p>${postItems.body}</p>`;
+
+
+        let btn = document.createElement('button');
+        mainDiv.appendChild(btn);
+        btn.innerText = 'Get Coments';
+
+        btn.onclick = () => {
+            fetch(`https://jsonplaceholder.typicode.com/comments/${postItems.id}`)
+            .then((response) => response.json())
+            .then((json) => {
+            const comments = document.createElement('p');
+            mainDiv.appendChild(comments);
+            comments.innerText = json.body;
+
+            btn.disabled = true;
+
+            const home = document.createElement('button');
+            mainDiv.appendChild(home);
+
+            let link = document.createElement('a');
+            home.appendChild(link);
+
+            link.href = './index.html';
+            link.innerText = 'Home';
+            }) 
+        }
+        })
+
+        
+    </script>
+</body>
+</html>

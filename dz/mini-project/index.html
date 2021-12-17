@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        const userDetails = 'details';
+        localStorage.setItem(userDetails, JSON.stringify([]));
+
+        const fatherDiv = document.createElement('div');
+        document.body.appendChild(fatherDiv);
+        fatherDiv.classList.add('father');
+
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(json => {
+                    for (const jsonItems of json) {
+
+                        let mainDiv = document.createElement('div');
+                        fatherDiv.appendChild(mainDiv);
+                        mainDiv.classList.add('main');
+
+                        const сontent = document.createElement('div');
+                        mainDiv.appendChild(сontent);
+                        сontent.classList.add('content');
+
+                        сontent.innerHTML = `
+                        <p>${jsonItems.id}</p>
+                        <p>${jsonItems.name}</p>`
+
+                        let btn = document.createElement('button');
+
+
+                        let link = document.createElement('a');
+                        btn.appendChild(link);
+                        link.href = './user-details.html';
+                        link.innerText = 'Detail';
+
+                        link.onclick = () => {
+                            const details = JSON.parse(localStorage.getItem(userDetails));
+                            details.push(jsonItems);
+                            localStorage.setItem(userDetails, JSON.stringify(details));
+                        }
+
+                        mainDiv.appendChild(btn);
+                    }
+                }
+            )
+</script>
+</body>
+</html>

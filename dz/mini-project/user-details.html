@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        p {
+            padding: .2rem;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        button {
+            font-size: 20px;
+            padding: .3rem;
+            margin: .5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+    const users = JSON.parse(localStorage.getItem('details'));
+
+    const fatherDiv = document.createElement('div');
+    fatherDiv.className = 'father';
+    document.body.appendChild(fatherDiv);
+
+
+    users.forEach( user => {
+
+        let mainDiv = document.createElement('div');
+        fatherDiv.appendChild(mainDiv);
+        mainDiv.classList.add('main');
+
+        mainDiv.innerHTML = `
+        <p>${user.id}</p>
+        <p>${user.name}</p>
+        <p>${user.username} </p>
+        <p>${user.email}</p>
+        <p>${user.address.street}</p>
+        <p>${user.address.suite}</p>
+        <p>${user.address.zipcode}</p>
+        <p>${user.address.geo.lat}</p>
+        <p>${user.address.geo.lng}</p>`;
+
+        let btn = document.createElement('button');
+        mainDiv.appendChild(btn);
+        btn.innerText = 'Post Title';
+
+        btn.onclick = () => {
+            fetch(`https://jsonplaceholder.typicode.com/posts/${user.id}`)
+            .then((response) => response.json())
+            .then((json) => {
+            const posts = document.createElement('p');
+
+            mainDiv.appendChild(posts);
+
+            posts.innerText = json.title;
+
+            btn.disabled = true;
+
+            let btnPost = document.createElement('button');
+            let link = document.createElement('a');
+
+            mainDiv.appendChild(btnPost);
+            btnPost.appendChild(link);
+
+            link.href = './post-details.html';
+            link.innerText = 'Post Details';
+
+        
+            const postDetails = 'post';
+            localStorage.setItem(postDetails, JSON.stringify([]));
+        
+            link.onclick = () => {
+            const detailsObj = JSON.parse(localStorage.getItem(postDetails));
+            detailsObj.push(json);
+            localStorage.setItem(postDetails, JSON.stringify(detailsObj));
+            document.body = '';
+            }
+            });
+        }
+    })
+    </script>
+</body>
+</html>
