@@ -48,23 +48,25 @@
         btn.innerText = 'Get Coments';
 
         btn.onclick = () => {
-            fetch(`https://jsonplaceholder.typicode.com/comments/${postItems.id}`)
+            fetch(`https://jsonplaceholder.typicode.com/posts/${postItems.id}/comments`)
             .then((response) => response.json())
             .then((json) => {
-            const comments = document.createElement('p');
-            mainDiv.appendChild(comments);
-            comments.innerText = json.body;
+                for (const jsonElement of json) {
+                    const comments = document.createElement('p');
+                    mainDiv.appendChild(comments);
+                    comments.innerText = jsonElement.body;
 
-            btn.disabled = true;
+                    btn.disabled = true;
 
-            const home = document.createElement('button');
-            mainDiv.appendChild(home);
+                }
+                const home = document.createElement('button');
+                mainDiv.appendChild(home);
 
-            let link = document.createElement('a');
-            home.appendChild(link);
+                let link = document.createElement('a');
+                home.appendChild(link);
 
-            link.href = './index.html';
-            link.innerText = 'Home';
+                link.href = './index.html';
+                link.innerText = 'Home';
             }) 
         }
         })
